@@ -84,6 +84,42 @@ void categ(string s){
         cout << "Ther is no recipe with this category in our database" << endl;
     }
 }
+void meal_planner(){
+    cout << "Enter all the three meals for breakfast lunch and dinner with entering after each input" << endl;
+    string s1;
+    string s2;
+    string s3;
+    cin >> s1;
+    cin >> s2;
+    cin >> s3;
+    cout << "Breakfast description : \n \n";
+    dis(s1);
+    cout << "\n \nLunch description : \n \n";
+    dis(s2);
+    cout << "\n \nDinner description : \n \n";
+    dis(s3);
+}
+void meal_dec(){
+    cout << "Can you please enter the range of calorie in which you want to enter in this format eg : \'100\' \'150\' with space between them : ";
+    int n1,n2;
+    cin >> n1 >> n2;
+    cout << "Enter the category of the food you want : ";
+    string s;
+    cin >> s;
+    int flag=0;
+    recipe* current=head;
+    while(current!=nullptr){
+        if(current->calories >= n1 && current->calories<=n2 && current->category==s){
+            cout << "You can make : " << current->name << endl;
+            dis(current->name);
+            flag=1;
+        }
+        current=current->next;
+    }
+    if(flag==0){
+        cout << "There is no kind of recipe you want in the database " << endl;
+    }
+}
 int main(){
     int n;
     ifstream file;
