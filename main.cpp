@@ -13,6 +13,19 @@ class recipe{
         int n1;
 };
 void dis(string s1);
+recipe* head=nullptr;
+recipe* tail=nullptr;
+void add(recipe* temp){
+    if(head==nullptr){
+        head=temp;
+        tail=temp;
+    }
+    else{
+        tail->next=temp;
+        tail=temp;
+        tail->next=nullptr;
+    }
+}
 void display(){
     recipe* current = head;
     while(current!=nullptr){
