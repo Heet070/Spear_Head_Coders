@@ -13,6 +13,15 @@ class recipe{
         int n1;
 };
 void dis(string s1);
+void disp(recipe* current){
+    cout << "Ingredients Name : ";
+    for(int i=0;i<current->n1;i++){
+        cout << current->ingredients[i] << ",";
+    }
+    cout << "\n";
+    cout << "Category : " << current->category << endl;
+    cout << "Calories : " << current->calories << endl;
+}
 recipe* head=nullptr;
 recipe* tail=nullptr;
 void add(recipe* temp){
@@ -52,7 +61,7 @@ void search(string s){
         }
         if(flag==1){
             cout << "You can make : " << current->name << endl;
-            dis(current->name);
+            disp(current);
             flag=1;
         }
         current=current->next;
@@ -88,7 +97,7 @@ void categ(string s){
     while(current!=nullptr){
         if(current->category==s){
             cout << "You can make : " << current->name << endl;
-            dis(current->name);
+            disp(current);
             flag=1;
         }
         current=current->next;
@@ -124,7 +133,7 @@ void meal_dec(){
     while(current!=nullptr){
         if(current->calories >= n1 && current->calories<=n2 && current->category==s){
             cout << "You can make : " << current->name << endl;
-            dis(current->name);
+            disp(current);
             flag=1;
         }
         current=current->next;
