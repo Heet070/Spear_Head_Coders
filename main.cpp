@@ -13,6 +13,41 @@ class recipe{
         int n1;
 };
 void dis(string s1);
+void display(){
+    recipe* current = head;
+    while(current!=nullptr){
+        cout << "Recipe name : " << current->name << " Ingredients Name : ";
+        for(int i=0;i<current->n1;i++){
+            cout << current->ingredients[i] << ", ";
+        }
+        cout << "Calories : " << current->calories << " Category : " << current->category << endl;
+        current=current->next;
+    }
+}
+void search(string s){
+    recipe* current=head;
+    int flag1=0;
+    while(current!=nullptr){
+        int flag=0;
+        for(int i=0;i<current->n1;i++){
+            string s1=current->ingredients[i];
+            if(s==s1){
+                flag=1;
+                flag1=1;
+                break;
+            }
+        }
+        if(flag==1){
+            cout << "You can make : " << current->name << endl;
+            dis(current->name);
+            flag=1;
+        }
+        current=current->next;
+    }
+    if(flag1==0){
+        cout << "\nNo recipe has used this ingridientts is in our database" << endl;
+    }
+}
 int main(){
     int n;
     ifstream file;
