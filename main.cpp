@@ -48,6 +48,42 @@ void search(string s){
         cout << "\nNo recipe has used this ingridientts is in our database" << endl;
     }
 }
+void dis(string s1){
+    recipe *current=head;
+    int flag=0;
+    while(current!=nullptr){
+        if(current->name==s1){
+            flag=1;
+            cout << "Ingredients Name : ";
+            for(int i=0;i<current->n1;i++){
+                cout << current->ingredients[i] << ",";
+            }
+            cout << "\n";
+            cout << "Category : " << current->category << endl;
+            cout << "Calories : " << current->calories << endl;
+            break;
+        }
+        current=current->next;
+    }
+    if(flag==0){
+        cout << "The recipe is not in our database" << endl;
+    }
+}
+void categ(string s){
+    recipe* current=head;
+    int flag=0;
+    while(current!=nullptr){
+        if(current->category==s){
+            cout << "You can make : " << current->name << endl;
+            dis(current->name);
+            flag=1;
+        }
+        current=current->next;
+    }
+    if(flag==0){
+        cout << "Ther is no recipe with this category in our database" << endl;
+    }
+}
 int main(){
     int n;
     ifstream file;
