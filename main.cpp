@@ -170,6 +170,7 @@ int main(){
     while(n){
         if(n==1){
             cout << "Enter recipe name to be entered : ";
+             //Always enter the first letter capital in the word
             recipe* temp=new recipe;
             cin >> temp->name;
             cout << "Enter the no of ingredients requirded : ";
@@ -178,11 +179,13 @@ int main(){
             temp->n1=n1;
             cout << "Enter name of all the ingredients we need with entering enter after typing the name of each ingredients "<< endl;
             for(int i=0;i<n1;i++){
+                 //Always enter the first letter capital in the word
                 cin >> temp->ingredients[i];
             }
             cout << "Enter  no of calories of the recipe : ";
             cin >> temp->calories;
             cout << "Enter the category ofthe dish : ";
+             //Always enter the first letter capital in the word
             cin >> temp->category;
             temp->next=nullptr;
             ofstream file1;
@@ -201,18 +204,21 @@ int main(){
         }
         else if(n==3){
             cout << "Enter ingredient : ";
+             //Always enter the first letter capital in the word
             string s;
             cin >> s;
             search(s);
         }
         else if(n==4){
             string s1;
+            //Always enter the first letter capital in the word
             cout << "Enter the category : ";
             cin >> s1;
             categ(s1);
         }
         else if(n==5){
             string s1;
+            //Always enter the first letter capital
             cout << "Enter the name of the recipe you want to find details of : ";
             cin >> s1;
             dis(s1);
